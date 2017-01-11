@@ -2,6 +2,11 @@ import {Atomist} from '@atomist/rug/operations/Handler'
 import {TreeNode} from '@atomist/rug/tree/PathExpression'
 declare var atomist: Atomist
 
+
+// /build[@status='Passed' or @status='Fixed']
+
+// /build[@status='Failed' or @status='Broken']/commit/committer/person
+
 atomist.on<TreeNode, TreeNode>("/build", m => {
    let build = m.root() as any
    let mb = atomist.messageBuilder()
